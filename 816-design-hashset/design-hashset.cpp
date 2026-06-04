@@ -1,6 +1,6 @@
 class MyHashSet {
 public:
-int hash[10000000]={};
+int hash[1000001]={};
     MyHashSet() {
         memset(hash,0,sizeof(hash));
     }
