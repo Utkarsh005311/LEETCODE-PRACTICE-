@@ -1,10 +1,10 @@
 class Solution {
 public:
     bool areOccurrencesEqual(string s) {
-        unordered_map<char,int>mpp;
+        map<int,int>mpp;
         for(auto ch:s)
         {
-            mpp[ch]+=1;
+            mpp[ch-'a']+=1;
         }
         if(mpp.size()==1)
         {
