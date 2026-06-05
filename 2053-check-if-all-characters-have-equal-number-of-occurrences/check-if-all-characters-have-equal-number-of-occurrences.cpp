@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool areOccurrencesEqual(string s) {
-        map<char,int>mpp;
+        unordered_map<char,int>mpp;
         for(auto ch:s)
         {
             mpp[ch]+=1;
