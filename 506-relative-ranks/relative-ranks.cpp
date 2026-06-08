@@ -1,64 +1,34 @@
 class Solution {
 public:
     vector<string> findRelativeRanks(vector<int>& score) {
-        vector<string>ans;
-        int n=score.size();
-        int kika[n];
-        if(n==1)
+       int n=score.size();
+       unordered_map<int,string>mpp;
+       vector<int>temp=score;
+       sort(temp.begin(),temp.end());
+       for(int i=0;i<temp.size();i++)
+       {
+        if(i==n-1)
         {
-            ans.push_back("Gold Medal");
-            return ans;
+            mpp[temp[i]]="Gold Medal";
         }
-        if(n==2)
+        else if(i==n-2)
         {
-            if(score[0]<score[1])
-            {
-                ans.push_back("Silver Medal");
-                ans.push_back("Gold Medal");
-            
-            }
-            else
-            {
-                 ans.push_back("Gold Medal");
-                 ans.push_back("Silver Medal");
-            }
-            return ans;
+            mpp[temp[i]]="Silver Medal";
         }
-        for(int i=0;i<n;i++)
+        else if(i==n-3)
         {
-            kika[i]=score[i];
+            mpp[temp[i]]="Bronze Medal";
         }
-        sort(score.begin(),score.end());//1 2 3 4 5
-        int first=score[n-1];
-        int second=score[n-2];
-        int third =score[n-3];
-         for(int i=0;i<n;i++)
+        else
         {
-            if(kika[i]==first)
-            {
-                ans.push_back("Gold Medal");
-            }
-            else if(kika[i]==second)
-            {
-                ans.push_back("Silver Medal");
-            }
-            else if(kika[i]==third)
-            {
-                ans.push_back("Bronze Medal");
-            }
-            else
-            {
-               int a=kika[i];
-               for(int j=0;j<score.size();j++)
-               {
-                if(score[j]==a)
-                {
-                    ans.push_back(to_string(n-j));
-                    break;
-                }
-               }
-            }
+            mpp[temp[i]]=to_string(n-i);
         }
-        return ans;
+       }
+       vector<string>ans;
+     for(int x:score)
+     {
+      ans.push_back(mpp[x]);
+     }
+     return ans;
     }
 };
