@@ -1,7 +1,7 @@
 class Solution {
 public:
     string mapWordWeights(vector<string>& words, vector<int>& weights) {
-        map<char,int>mpp;
+        /* map<char,int>mpp;
         map<int,char>mpw;
         string ans="";
         int s=0;
@@ -28,6 +28,16 @@ public:
             }
             s=s%26;
             ans=ans+mpw[s];
+        }
+        return ans;*/
+        string ans="";
+        for(string &word:words)
+        {   int s=0;
+            for(auto ch:word)
+            {
+                s=s+weights[ch-'a'];
+            }
+            ans=ans+char(('z'-(s%26)));
         }
         return ans;
     }
