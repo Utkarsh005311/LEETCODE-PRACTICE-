@@ -2,22 +2,21 @@ class Solution {
 public:
     string reverseVowels(string s) {
         int l=s.length();
-        string vowels="aeiou";
         int i=0;
         int j=l-1;
         while(i<=j)
         {
-            if(vowels.contains(tolower(s[i]))&&vowels.contains(tolower(s[j])))
+            if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')&&(s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u'||s[j]=='A'||s[j]=='E'||s[j]=='I'||s[j]=='O'||s[j]=='U')==true)
             {
                 swap(s[i],s[j]);
                 i++;
                 j--;
             }
-            else if(vowels.contains(tolower(s[i])))
+            else if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')
             {
                 j--;
             }
-            else if(vowels.contains(tolower(s[j])))
+            else if(s[j]=='a'||s[j]=='e'||s[j]=='i'||s[j]=='o'||s[j]=='u'||s[j]=='A'||s[j]=='E'||s[j]=='I'||s[j]=='O'||s[j]=='U')
             {
                 i++;
             }
