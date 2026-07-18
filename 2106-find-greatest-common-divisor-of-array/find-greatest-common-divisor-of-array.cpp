@@ -2,7 +2,16 @@ class Solution {
 public:
     int findGCD(vector<int>& nums) {
         int l=nums.size();
-        sort(nums.begin(),nums.end());
-        return gcd(nums[0],nums[l-1]);
+        int sm=INT_MAX;
+        int lg=0;
+        for(int i=0;i<l;i++)
+        {
+           sm=min(sm,nums[i]);
+        }
+         for(int i=0;i<l;i++)
+        {
+           lg=max(lg,nums[i]);
+        }
+        return gcd(lg,sm);
     }
 };
